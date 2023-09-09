@@ -6,6 +6,6 @@ class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Columm(db.String)
+    email = db.Column(db.String)
     name = db.Column(db.String)
 
