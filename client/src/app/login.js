@@ -3,17 +3,39 @@ import { useState } from "react";
 
 function Login() {
 
-  const [email, password] = useState([]);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  });
+
+
+  function handleChange() {
+    const key = e.target.value
+    setFormData({
+      ...formData, 
+      [key]: e.target.value
+    })
+  }
+
+  function handleChange(e) {
+    const key = e.target.id
+    setFormData({
+      ...formData,
+      [key]: e.target.value
+    })
+  }
 
   return ( 
     <div>
       <form> 
         <label className="bg-white mx-3 text-black">Email</label>
         <input 
+          className="text-black"
           type="text"
           id="email"
           input="text"
-          value={email}
+          value={formData.email}
+          onChange={handleChange}
         />
        <button 
         type="submit"
