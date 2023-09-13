@@ -88,7 +88,7 @@ export default function Signup() {
                     <a
                       onClick={() => router.push('/')} 
                       href="#" 
-                      class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                      class="font-medium text-primary-600 hover:underline dark:text-primary-500 text-blue-600 ml-2"
                     >Login here</a>
                     </p>
                 </form>
