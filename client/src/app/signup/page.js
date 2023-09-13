@@ -25,7 +25,7 @@ export default function Signup() {
                 <h1 
                   class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white"
                 >
-                Create and account
+                Create an account
                 </h1>
                 <form 
                   class="space-y-4 md:space-y-6" 
@@ -66,7 +66,7 @@ export default function Signup() {
                         >Confirm password
                         </label>
                         <input 
-                          type="confirm-password" 
+                          type="password" 
                           name="confirm-password" 
                           id="confirm-password" 
                           placeholder="••••••••" 
