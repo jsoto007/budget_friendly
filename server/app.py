@@ -32,7 +32,29 @@ class Login(Resource):
 
 api.add_resource(Login, '/login')
 
-# second api
+# checks the session of the user and tracks cookies throughout webpages
+
+class CheckSession(Resource):
+
+    def get(self):
+
+        if session.get("user_id"):
+
+            user = User.query.filter_by(id=session['user_id']).first()
+
+            user_dict = user.to_dict()
+
+            response = make_response(user_dict, 200)
+
+            return response
+        
+        response = make_response({'error': '401 Unauthorized'}, 401)
+
+        return response
+
+api.add_resource(CheckSession, '/check_session')
+
+# third api
 
 
 
