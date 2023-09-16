@@ -6,6 +6,9 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData 
 
 app = Flask(__name__)
+
+app.secret_key = b'\x94\x12=\xbd\xaeM\xd6,\x12V\x01v\x16\xecv\x06'
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
