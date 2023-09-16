@@ -54,20 +54,31 @@ class CheckSession(Resource):
 
 api.add_resource(CheckSession, '/check_session')
 
-# third api
+# will delete the user session once he logs out 
 
+class Logout(Resource):
 
+    def delete(self):
+
+        session['user_id'] = None
+
+        response = make_response({}, 204)
+
+        return response
+
+api.add_resource(Logout, '/logout')
 
 
 # test users api 
-# class Users(Resource):
-#     def get(self):
+class Users(Resource):
 
-#         users_list = [u.to_dict() for u in User.query.all()]
-#         response = make_response(users_list, 200)
-#         return response
+    def get(self):
+
+        users_list = [u.to_dict() for u in User.query.all()]
+        response = make_response(users_list, 200)
+        return response
     
-# api.add_resource(Users, '/users')
+api.add_resource(Users, '/users')
 
 
 
