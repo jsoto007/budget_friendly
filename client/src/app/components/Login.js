@@ -1,10 +1,8 @@
 'use client'
 import { useState } from "react";
-import { useRouter } from "next/navigation"
 
-function Login() {
+function Login( { onChangeLogin } ) {
 
-  const router = useRouter();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -96,7 +94,7 @@ function Login() {
             <a 
               href="#" 
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-              onClick={() => router.push('/signup')}
+              onClick={onChangeLogin}
             >
             Sing Up it's Free!
             </a>

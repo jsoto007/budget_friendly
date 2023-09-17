@@ -1,12 +1,9 @@
-'use client'
 
-import { useRouter } from "next/navigation"
 
-export default function Signup() {
 
-  const router = useRouter();
+export default  function Signup( { onChangeLogin } ) {
 
-  return (
+  return( 
     <section class="bg-gray-50 dark:bg-gray-700">
     <div 
       class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -68,7 +65,6 @@ export default function Signup() {
                         <input 
                           type="password" 
                           name="confirm-password" 
-                          id="confirm-password" 
                           placeholder="••••••••" 
                           class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="" 
                         />
@@ -86,7 +82,7 @@ export default function Signup() {
                       class="text-sm font-light text-gray-500 dark:text-gray-400"
                     >Already have an account? 
                     <a
-                      onClick={() => router.push('/')} 
+                      onClick={onChangeLogin} 
                       href="#" 
                       class="font-medium text-primary-600 hover:underline dark:text-primary-500 text-blue-600 ml-2"
                     >Login here</a>
