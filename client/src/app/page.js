@@ -14,7 +14,6 @@ export default function Home() {
 
   return (
     <div> 
-      <button onClick={changeLogintoSignup}>ClickMe</button>
       {isLogin? (<Login onChangeLogin={changeLogintoSignup} />):(<Signup onChangeLogin={changeLogintoSignup} />)}
     </div>
   )
