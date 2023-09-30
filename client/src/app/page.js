@@ -9,7 +9,6 @@ export default function Home() {
 
   function changeLogintoSignup() {
     setIsLogin((isLogin) => !isLogin)
-    console.log(isLogin)
   }
 
   return (
