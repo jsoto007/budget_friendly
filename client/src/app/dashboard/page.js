@@ -1,6 +1,6 @@
 
 
-function Home() {
+function Dashboard() {
 
 
   return(
@@ -10,4 +10,4 @@ function Home() {
   )
 }
 
-export default Home;
+export default Dashboard;
