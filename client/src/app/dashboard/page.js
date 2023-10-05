@@ -2,7 +2,7 @@
 import { UserContext } from './context/UserContextProvider'
 import { useContext, useState } from 'react'
 
-function Home() {
+function Dashboard() {
 
   const {currentUser} = useContext(UserContext)
 
@@ -15,4 +15,4 @@ function Home() {
   )
 }
 
-export default Home;
+export default Dashboard;
