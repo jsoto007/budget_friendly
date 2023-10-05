@@ -1,11 +1,16 @@
-
+'use client'
+import { UserContext } from './context/UserContextProvider'
+import { useContext, useState } from 'react'
 
 function Home() {
+
+  const {currentUser} = useContext(UserContext)
+
 
 
   return(
     <div>
-      Home
+      Welcome Home {currentUser}!
     </div>
   )
 }
