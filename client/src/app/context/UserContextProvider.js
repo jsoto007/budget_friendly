@@ -13,7 +13,7 @@ function UserContextProvider({ children } ) {
   useEffect(()=> {
     fetch('/check_session')
     .then((resp)=> resp.json)
-    .then((resp)=>(console.log(resp)))
+    .then((resp)=>(setCurrentUser("name")))
   },[])
   
 
