@@ -1,13 +1,36 @@
 'use client'
-import { useState } from "react";
+
+import { useState, useContext } from "react";
+import { UserContext } from "../context/UserContextProvider";
+
 
 function Login( { onChangeLogin } ) {
+  
 
+  const {currentUser, setCurrentUser} = useContext(UserContext)
 
   const [formData, setFormData] = useState({
     email: "",
     password:""
   });
+
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const response = await fetch('/login', {
+      method: "POST", 
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body:JSON.stringify(formData)
+    });
+    const data = await response.json();
+    if(response.ok){
+      setCurrentUser(data)
+      console.log(data)
+      handleReload()
+    }
+  }
 
   function handleChange() {
     const key = e.target.value
@@ -35,7 +58,7 @@ function Login( { onChangeLogin } ) {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" action="#" method="POST" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email address

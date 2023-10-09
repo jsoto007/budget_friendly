@@ -8,14 +8,16 @@ const UserContext = React.createContext();
 function UserContextProvider({ children } ) {
   const [currentUser, setCurrentUser] = useState({})
 
-
-
-  useEffect(()=> {
+  useEffect(() => {
     fetch('/check_session')
-    .then((resp)=> resp.json)
-    .then((resp)=>(setCurrentUser("name")))
-  },[])
-  
+    .then(resp => {
+      if (resp.ok){
+        resp.json().then(user => {
+          setCurrentUser(user)
+        })
+      }
+    })
+  }, [])
 
   return (
     <UserContext.Provider value={{

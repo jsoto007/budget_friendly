@@ -1,20 +1,19 @@
 'use client'
+
 import Signup from "./components/Signup"
 import Login from './components/Login'
 import { UserContext } from './context/UserContextProvider'
 import { useContext, useState } from 'react'
+import Auth from "./components/Auth"
 
 export default function Home() {
 
-  const [isLogin, setIsLogin] = useState(true)
 
-  function changeLogintoSignup() {
-    setIsLogin((isLogin) => !isLogin)
-  }
+  if (userLogedIn === null) return <Auth />
 
   return (
-    <div> 
-      {isLogin? (<Login onChangeLogin={changeLogintoSignup} />):(<Signup onChangeLogin={changeLogintoSignup} />)}
+    <div>
+      Hellor from Home
     </div>
   )
 }
