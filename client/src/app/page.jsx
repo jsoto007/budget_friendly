@@ -6,10 +6,13 @@ import { UserContext } from './context/UserContextProvider'
 import { useContext, useState } from 'react'
 import Auth from "./components/Auth"
 
+import { useSession } from "next/session";
+
 export default function Home() {
 
+  const { user } = useSession();
 
-  if (userLogedIn === null) return <Auth />
+  if (!user) return <Auth />
 
   return (
     <div>
