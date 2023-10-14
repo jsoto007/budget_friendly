@@ -1,22 +1,18 @@
-'use client'
+'use client' 
 
-import Signup from "./components/Signup"
-import Login from './components/Login'
-import { UserContext } from './context/UserContextProvider'
-import { useContext, useState } from 'react'
 import Auth from "./components/Auth"
-
-import { useSession } from "next/session";
+import { useContext } from "react";
+import { UserContext } from "./context/UserContextProvider";
 
 export default function Home() {
 
-  const { user } = useSession();
+const {currentUser} = useContext(UserContext)
 
-  if (!user) return <Auth />
+  if (!currentUser) return <Auth />
 
   return (
     <div>
-      Hellor from Home
+      Hellor from Home {`${currentUser.email}`}
     </div>
   )
 }

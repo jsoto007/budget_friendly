@@ -10,7 +10,7 @@ function Login( { onChangeLogin } ) {
 
   const [formData, setFormData] = useState({
     email: "",
-    password:""
+    // password:""
   });
 
 
@@ -26,8 +26,6 @@ function Login( { onChangeLogin } ) {
     const data = await response.json();
     if(response.ok){
       setCurrentUser(data)
-      console.log(data)
-      handleReload()
     }
   }
 
