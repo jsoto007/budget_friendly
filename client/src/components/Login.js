@@ -1,5 +1,6 @@
-import React from "react";
-import { useState} from "react";
+'use client'
+
+import { useState } from "react";
 
 
 function Login( { onChangeLogin } ) {
@@ -7,7 +8,7 @@ function Login( { onChangeLogin } ) {
 
   const [formData, setFormData] = useState({
     email: "",
-    // password:""
+    password:""
   });
 
 
@@ -26,13 +27,6 @@ function Login( { onChangeLogin } ) {
     }
   }
 
-  function handleChange() {
-    const key = e.target.value
-    setFormData({
-      ...formData, 
-      [key]: e.target.value
-    })
-  }
 
   function handleChange(e) {
     const key = e.target.id
