@@ -7,21 +7,37 @@ export default function App() {
 
 
   useEffect(() => {
-    fetch('/check_session')
+    fetch('http://127.0.0.1:5555/users')
     .then(resp => {
       if (resp.ok){
-        resp.json().then(user => {
-          setUser(user)
+        resp.json().then(data => {
+          setUser(true)
         })
       }
     })
   }, [])
 
+  function handleLogout() {
+    fetch("http://127.0.0.1:5555/logout", {
+      method: 'DELETE', 
+    })
+    .then(()=> {
+      setUser(false)
+  })
+  }
+
   if (!user) return <AuthConteiner />
 
   return (
     <div className="bd-red-700">
-      Hello from Home!
+      <h1>
+        Hello from Home! 
+      </h1>
+      <h2>
+        Email: 
+      </h2>
+      <button onClick={handleLogout}>Logout</button>
+      
     </div>
   )
 }

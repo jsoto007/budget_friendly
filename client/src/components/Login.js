@@ -8,13 +8,12 @@ function Login( { onChangeLogin } ) {
 
   const [formData, setFormData] = useState({
     email: "",
-    password:""
   });
 
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch('/login', {
+    const response = await fetch('http://127.0.0.1:5555/login', {
       method: "POST", 
       headers: {
         'Content-type': 'application/json'
@@ -65,7 +64,7 @@ function Login( { onChangeLogin } ) {
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <div className="flex items-center justify-between">
                 <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                   Password
@@ -88,7 +87,7 @@ function Login( { onChangeLogin } ) {
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 px-2"
                 />
               </div>
-            </div>
+            </div> */}
 
             <div>
               <button
