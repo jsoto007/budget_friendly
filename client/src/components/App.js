@@ -3,7 +3,7 @@
 function App() {
   return (
    <div>
-    Hello from react
+    Hello from react js
    </div>
   );
 }
