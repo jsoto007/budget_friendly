@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import AuthConteiner from "./AuthConteiner"
+import Dashboard from "./Dashboard"
 
 export default function App() {
 
@@ -29,15 +30,9 @@ export default function App() {
   if (!user) return <AuthConteiner />
 
   return (
-    <div className="bd-red-700">
-      <h1>
-        Hello from Home! 
-      </h1>
-      <h2>
-        Email: 
-      </h2>
+    <div className="bg-[#0F4880]">
       <button onClick={handleLogout}>Logout</button>
-      
+      <Dashboard />
     </div>
   )
 }
