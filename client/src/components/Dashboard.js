@@ -35,7 +35,7 @@ export default function Dashboard() {
             className="ml-5 mb-2"
           />
           <spam className="flex justify-center text-white text-sm">
-            Lessons
+            Expenses
           </spam>
           
           </div>
@@ -60,13 +60,13 @@ export default function Dashboard() {
               className="ml-5 mb-2"
             />
             <spam className="flex justify-center text-white text-sm">
-              Accessibility
+              Settings
             </spam>
           </div>
         </div>
       </div>
      
-      <div className="p-7 bg-neutral-200 my-20 rounded-xl">
+      <div className="p-7 bg-neutral-200 my-20 rounded-xl lg:w-[80%]">
         <div>
           <h1 className="text-2xl font-semibold">
             Dashboard
