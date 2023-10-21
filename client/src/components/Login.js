@@ -23,7 +23,16 @@ function Login( { onChangeLogin } ) {
     const data = await response.json();
     if(response.ok){
       setFormData(data)
+      window.localStorage.setItem("isLoggedIn", true)
+      handleReload()
     }
+  }
+
+
+  function handleReload() {
+    setTimeout(function(){
+      window.location.reload();
+  }, 100);
   }
 
 

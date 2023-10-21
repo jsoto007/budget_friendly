@@ -1,33 +1,32 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import AuthConteiner from "./AuthConteiner"
 import Dashboard from "./Dashboard"
+import { UserContext } from "../context/UserContextProvider";
 
 export default function App() {
 
-  const [user, setUser] = useState(false)
+
+  const userLogedIn = window.localStorage.getItem("isLoggedIn");
+
+  if (userLogedIn === null) return <AuthConteiner />
 
 
-  useEffect(() => {
-    fetch('http://127.0.0.1:5555/users')
-    .then(resp => {
-      if (resp.ok){
-        resp.json().then(data => {
-          setUser(true)
-        })
-      }
-    })
-  }, [])
+  function handleReload() {
+    setTimeout(function(){
+      window.location.reload();
+  }, 100);
+  }
 
   function handleLogout() {
     fetch("http://127.0.0.1:5555/logout", {
       method: 'DELETE', 
     })
     .then(()=> {
-      setUser(false)
+
+      localStorage.removeItem("isLoggedIn")
+      handleReload()
   })
   }
-
-  if (!user) return <AuthConteiner />
 
   return (
     <div className="bg-[#0F4880]">
