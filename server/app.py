@@ -3,6 +3,8 @@ from models import User
 from flask_restful import Resource
 from config import app, db, api
 
+from sqlalchemy.exc import IntegrityError
+
 # INSERT APIS AND CLASSES
 
 # created a login api to attach a session when a user logs in
@@ -13,18 +15,21 @@ class Login(Resource):
         data = request.get_json()
 
         email = data.get('email')
+        password = data.get('password')
 
         user = User.query.filter_by(email=email).first()
 
         if user:
 
-            session['user_id'] = user.id
+            if user.authenticate(password):
 
-            user_dict = user.to_dict()
+                session['user_id'] = user.id
 
-            response = make_response(user_dict, 200)
+                user_dict = user.to_dict()
 
-            return response
+                response = make_response(user_dict, 200)
+
+                return response
 
         response = make_response({'error': 'Unauthorized'}, 401)
 
@@ -67,6 +72,37 @@ class Logout(Resource):
         return response
 
 api.add_resource(Logout, '/logout')
+
+class Signup(Resource):
+
+    def post(self):
+
+        data = request.get_json()
+
+        new_user = User(email=data['email'])
+
+        new_user.password_hash = data.get('password')
+
+        try:
+
+            db.session.add(new_user)
+            db.session.commit()
+
+            session['user_id'] = new_user.id
+
+            new_user_dict = new_user.to_dict()
+
+            response = make_response(new_user_dict, 201)
+        
+        except IntegrityError:
+
+            db.session.rollback()
+            response = make_response( {'error': 'email already exists'}, 422)
+
+        return response
+
+api.add_resource(Signup, '/signup')
+
 
 
 # test users api 
