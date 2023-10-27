@@ -8,6 +8,30 @@ export default  function Signup( { onChangeLogin } ) {
     password:""
   });
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const response = await fetch('http://127.0.0.1:5555/signup', {
+      method: "POST", 
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body:JSON.stringify(formData)
+    });
+    const data = await response.json();
+    if(response.ok){
+      setFormData(data)
+      window.localStorage.setItem("isLoggedIn", true)
+      handleReload()
+    }
+  }
+
+  function handleReload() {
+    setTimeout(function(){
+      window.location.reload();
+  }, 100);
+  }
+
+
   function handleChange(e) {
     const key = e.target.id
     setFormData({
@@ -26,7 +50,7 @@ export default  function Signup( { onChangeLogin } ) {
     </div>
 
     <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form className="space-y-6" action="#" method="POST">
+      <form className="space-y-6" action="#" method="POST" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
             Email address
@@ -57,7 +81,7 @@ export default  function Signup( { onChangeLogin } ) {
             <input
               id="name"
               name="name"
-              value={formData.password}
+              value={formData.value}
               onChange={handleChange}
               type="name"
               autoComplete="name"
@@ -79,7 +103,7 @@ export default  function Signup( { onChangeLogin } ) {
             <input
               id="password"
               name="password"
-              value={formData.password}
+              value={formData.value}
               onChange={handleChange}
               type="password"
               autoComplete="current-password"
