@@ -4,8 +4,8 @@ export default  function Signup( { onChangeLogin } ) {
 
   const [formData, setFormData] = useState({
     email: "",
-    password:"",
-    confirmPassword:""
+    name: "",
+    password:""
   });
 
   function handleChange(e) {
@@ -45,13 +45,36 @@ export default  function Signup( { onChangeLogin } ) {
           </div>
         </div>
 
-        {/* <div>
+        <div>
           <div className="flex items-center justify-between">
+            
+            <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
+              Full Name
+            </label>
+          </div>
+          
+          <div className="mt-2">
+            <input
+              id="name"
+              name="name"
+              value={formData.password}
+              onChange={handleChange}
+              type="name"
+              autoComplete="name"
+              required
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 px-2"
+            />
+          </div>
+          
+        </div>
+        <div>
+          <div className="flex items-center justify-between">
+            
             <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
               Password
             </label>
-          
           </div>
+          
           <div className="mt-2">
             <input
               id="password"
@@ -64,22 +87,8 @@ export default  function Signup( { onChangeLogin } ) {
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 px-2"
             />
           </div>
-          <label htmlFor="password-confirm" className="block text-sm font-medium leading-6 text-gray-900">
-              Confirm Password
-            </label>
-          <div className="mt-2">
-            <input
-              id="confirmPassword"
-              name="password-confirm"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              type="password"
-              autoComplete="current-password"
-              required
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 px-2"
-            />
-          </div>
-        </div> */}
+          
+        </div>
 
         <div>
           <button

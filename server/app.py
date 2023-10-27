@@ -79,7 +79,7 @@ class Signup(Resource):
 
         data = request.get_json()
 
-        new_user = User(email=data['email'])
+        new_user = User(email=data['email'], name=data['name'])
 
         new_user.password_hash = data.get('password')
 
