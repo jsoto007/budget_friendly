@@ -31,8 +31,8 @@ export default function App() {
 
   return (
     <div className="bg-[#0F4880]">
-      <NavBar />
       <button onClick={handleLogout}>Logout</button>
+      <NavBar />
       <Dashboard />
     </div>
   )
