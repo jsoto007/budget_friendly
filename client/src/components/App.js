@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react"
 import AuthConteiner from "./AuthConteiner"
 import Dashboard from "./Dashboard"
 import { UserContext } from "../context/UserContextProvider";
+import NavBar from "./NavBar";
 
 export default function App() {
 
@@ -30,6 +31,7 @@ export default function App() {
 
   return (
     <div className="bg-[#0F4880]">
+      <NavBar />
       <button onClick={handleLogout}>Logout</button>
       <Dashboard />
     </div>
