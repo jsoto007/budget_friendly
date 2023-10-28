@@ -6,7 +6,6 @@ import NavBar from "./NavBar";
 
 export default function App() {
 
-
   const userLogedIn = window.localStorage.getItem("isLoggedIn");
 
   if (userLogedIn === null) return <AuthConteiner />
