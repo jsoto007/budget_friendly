@@ -9,7 +9,7 @@ export default function App() {
 
   const userLogedIn = window.localStorage.getItem("isLoggedIn");
 
-  // if (userLogedIn === null) return <AuthConteiner />
+  if (userLogedIn === null) return <AuthConteiner />
 
 
   function handleReload() {
