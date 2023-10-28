@@ -79,7 +79,7 @@ export default function Dashboard() {
         </div>
       </div>
      
-      <div className="p-7 bg-neutral-200 my-20 rounded-xl lg:w-[80%]">
+      <div className="p-7 bg-neutral-200 my-20 rounded-xl lg:w-[85%] ">
         <div>
           <h1 className="text-2xl font-semibold">
             Dashboard
