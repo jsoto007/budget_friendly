@@ -11,6 +11,7 @@ export default function App() {
 
   if (userLogedIn === null) return <AuthConteiner />
 
+  
   return (
     <div className="bg-[#0F4880]">
       <NavBar />
