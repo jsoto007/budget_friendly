@@ -29,7 +29,7 @@ export default function Dashboard() {
             className="h-20 mx-auto object-cover rounded-full w-20 border-2 mt-10"
             src="https://images.pexels.com/photos/7275385/pexels-photo-7275385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           />
-          <div className="sm:mt-10 dm:mt-10 lg:mt-20">
+          <div className="sm:mt-10 dm:mt-10 lg:mt-20 hover:font-extrabold">
             <Link to="/profile">
               <img
                 src={profile}
@@ -43,7 +43,7 @@ export default function Dashboard() {
             </Link>
           </div>
 
-          <div className="sm:mt-4 dm:mt-6 lg:mt-10">
+          <div className="sm:mt-4 dm:mt-6 lg:mt-10 hover:font-extrabold">
             <Link to="/expenses">
               <img
                 src={book}
@@ -57,7 +57,7 @@ export default function Dashboard() {
             </Link>
           </div>
 
-          <div className="sm:mt-4 dm:mt-6 lg:mt-10">
+          <div className="sm:mt-4 dm:mt-6 lg:mt-10 hover:font-extrabold">
             <img
               src={trending}
               width={40}
@@ -69,7 +69,7 @@ export default function Dashboard() {
             </spam>
           </div>
 
-          <div className="sm:mt-4 dm:mt-6 lg:mt-10">
+          <div className="sm:mt-4 dm:mt-6 lg:mt-10 hover:font-extrabold">
             <img
               src={sliders}
               width={40}
