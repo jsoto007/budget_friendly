@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from "react"
+import React from "react"
+import { Route, Routes } from 'react-router-dom';
 import AuthConteiner from "./AuthConteiner"
 import Dashboard from "./Dashboard"
-import { UserContext } from "../context/UserContextProvider";
 import NavBar from "./NavBar";
-import { Route, Routes } from 'react-router-dom';
+import Profile from "./Profile"
 
 export default function App() {
 
@@ -11,7 +11,6 @@ export default function App() {
 
   if (userLogedIn === null) return <AuthConteiner />
 
-  
   return (
     <div className="bg-[#0F4880]">
       <NavBar />
@@ -19,7 +18,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<h1>Hello from home</h1>}/>
         <Route path="/dashboard" element={<Dashboard />}/>
-        <Route path="/profile" element={<h1>Profile</h1>}/>
+        <Route path="/profile" element={<Profile />}/>
         <Route path="/expenses" element={<h1>expenses</h1>}/>
       </Routes>
         

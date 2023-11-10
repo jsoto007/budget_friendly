@@ -7,7 +7,6 @@ import trending from "../images/trending.svg"
 import { Link } from 'react-router-dom';
 
 
-
 export default function Dashboard() {
 
 
@@ -65,7 +64,7 @@ export default function Dashboard() {
               className="ml-5 mb-2"
             />
             <spam className="flex justify-center text-white text-sm">
-              My Progress
+             Progress
             </spam>
           </div>
 
