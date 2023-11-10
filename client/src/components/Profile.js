@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContextProvider } from "../context/UserContextProvider";
+
 
 
 export default function Profile() {
+
 
   return(
     <div className="pt-16">
