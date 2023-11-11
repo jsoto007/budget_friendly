@@ -4,7 +4,7 @@ import AuthConteiner from "./AuthConteiner"
 import Dashboard from "./Dashboard"
 import NavBar from "./NavBar";
 import Profile from "./Profile"
-import { DataContextProvider } from "../context/DataContextProvier";
+import { DataContextProvider } from "../context/DataContextProvider";
 import { UserContextProvider } from "../context/UserContextProvider";
 
 export default function App() {

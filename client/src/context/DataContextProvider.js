@@ -1,18 +1,10 @@
-import React, {useEffect, useState} from 'react';
-
+import React, { useState, useEffect } from "react";
 
 const DataContext = React.createContext();
 
-function DataContextProvider( { children } ) {
+function DataContextProvider( { children }) {
 
   const [userData, setUserData] = useState({})
-
-  const dataSet = {
-    "_password_hash": "$2b$12$QD6J6NFLaadfRKhRKew.7uEqsXt1m5drylZdzGTXookwFjMD8u3/W",
-    "email": "testpostman@gmail.com",
-    "id": 2,
-    "name": "Post Man"
-    }
 
 
   useEffect(() => {
@@ -20,24 +12,20 @@ function DataContextProvider( { children } ) {
     .then(resp => {
       if (resp.ok){
         resp.json().then(dataForUser => {
-          setUserData(dataSet)
+          setUserData(dataForUser)
         })
       }
     })
   }, [])
 
-
-
-
   return (
     <DataContext.Provider value={{
       userData,
-      setUserData
+      setUserData,
     }}>
-        { children }
+      { children }
     </DataContext.Provider>
   )
-
 }
 
 export { DataContext, DataContextProvider};

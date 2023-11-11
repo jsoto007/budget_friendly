@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
-import { DataContext } from "../context/DataContextProvier";
+import { DataContext } from "../context/DataContextProvider";
 import ExpenseContainer from "./ExpenseContainer";
 
 
 
 export default function Profile() {
 
-  // const {data} = useContext(DataContext)
+  const {userData} = useContext(DataContext)
 
-
+  console.log("data", userData)
 
   return(
     <div>
