@@ -9,7 +9,7 @@ function UserContextProvider({ children } ) {
   const [currentUser, setCurrentUser] = useState({})
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5555/check_session')
+    fetch('/check_session')
     .then(resp => {
       if (resp.ok){
         resp.json().then(user => {
@@ -28,7 +28,7 @@ function UserContextProvider({ children } ) {
   }
 
   function handleLogout() {
-    fetch("http://127.0.0.1:5555/logout", {
+    fetch("/logout", {
       method: 'DELETE', 
     })
     .then(()=> {
