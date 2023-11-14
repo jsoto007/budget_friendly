@@ -35,7 +35,7 @@ function NavBar() {
           </button>
         </div>
         <div className="absolute right-0 font-sans font-bold">
-          <button onClick={handleLogout} className="lg:mr-10 p-1 px-3 bg-[#0f4880]/80 rounded-full text-neutral-200">
+          <button onClick={handleLogout} className="lg:mr-10 p-1 px-3 bg-[#0f4880]/20 rounded-full text-neutral-200">
             Sign out
           </button>
         </div>
