@@ -1,8 +1,10 @@
-import { PaperClipIcon } from '@heroicons/react/20/solid'
+import React from "react"
+import Profile from "./Profile"
 
 export default function IndividualData() {
   return (
-    <div className='pt-12 sm:mx-1 md:mx-2 lg:mx-4'>
+    <div className='sm:mx-1 md:mx-2 lg:mx-4'>
+      <Profile />
       <div className='bg-neutral-100 rounded-md'>
         <div className='sm:mx-1 md:mx-2 lg:mx-4'>
             <div className="px-4 sm:px-0">
