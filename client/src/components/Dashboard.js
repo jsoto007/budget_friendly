@@ -23,7 +23,7 @@ export default function Dashboard() {
   return( 
     <div className="flex">
       <div className="bg-dark-blue h-screen p-5 pt-8 sm:w-16 md:w-48 flex justify-center">
-        <div className="">
+        <div>
           <img 
             className="h-20 mx-auto object-cover rounded-full w-20 border-2 mt-10"
             src="https://images.pexels.com/photos/7275385/pexels-photo-7275385.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
