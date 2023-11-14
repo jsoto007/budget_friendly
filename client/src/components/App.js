@@ -3,8 +3,8 @@ import { Route, Routes, useContext } from 'react-router-dom';
 import AuthConteiner from "./AuthConteiner"
 import Dashboard from "./Dashboard"
 import NavBar from "./NavBar";
-import Profile from "./profile/Profile"
 import ProfileContainer from "./profile/ProfileContainer";
+import IndividualData from "./profile/IndicidualData";
 
 export default function App() {
 
@@ -21,6 +21,7 @@ export default function App() {
           <Route path="/dashboard" element={<Dashboard />}/>
           <Route path="/profile" element={<ProfileContainer />}/>
           <Route path="/expenses" element={<h1>expenses</h1>}/>
+          <Route path="/profile/security" element={<IndividualData />}/>
         </Routes>
           
       </div>

@@ -10,9 +10,9 @@ import {
 } from '@heroicons/react/24/outline'
 
 const solutions = [
-  { name: 'Analytics', description: 'Get a better understanding of your expenses', href: '#', icon: ChartPieIcon },
+  { name: 'Analytics', description: 'Get a better understanding of your expenses', href: '/profile/analytics', icon: ChartPieIcon },
   { name: 'Goals', description: 'Start a new goal to gain good financial habits', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Security', description: "Update password", href: '#', icon: FingerPrintIcon },
+  { name: 'Security', description: "Personal information and password update", href: '/profile/security', icon: FingerPrintIcon },
   { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
   { name: 'Automations', description: 'Build strategic payment plans for upcoming bills', href: '#', icon: ArrowPathIcon },
 ]
