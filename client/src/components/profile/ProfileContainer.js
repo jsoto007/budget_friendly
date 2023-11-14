@@ -4,7 +4,7 @@ import ProfileMenu from "./ProfileMenu";
 
 export default function ProfileContainer() {
   return (
-    <div>
+    <div className="bg-[#0F4880]">
       <Profile />
       <ProfileMenu />
     </div>
