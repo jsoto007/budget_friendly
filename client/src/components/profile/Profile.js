@@ -17,7 +17,6 @@ export default function Profile() {
             />
         <h2 className="text-white pt-1 mx-auto">{userData[0].name}</h2>
       </div>
-      <ExpenseContainer />
     </div>
   )
 }
