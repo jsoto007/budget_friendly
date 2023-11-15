@@ -22,6 +22,7 @@ export default function App() {
           <Route path="/profile" element={<ProfileContainer />}/>
           <Route path="/expenses" element={<h1>expenses</h1>}/>
           <Route path="/profile/security" element={<IndividualData />}/>
+          <Route path="/profile/analytics" element={<h1>Hello from User</h1>}/>
         </Routes>
           
       </div>

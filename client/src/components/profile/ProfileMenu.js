@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import {
   ArrowPathIcon,
@@ -31,10 +32,10 @@ export default function ProfileMenu() {
                     <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                   </div>
                   <div>
-                    <a href={item.href} className="font-semibold text-gray-900">
-                      {item.name}
+                  <Link to={item.href} className="font-semibold text-gray-900">{item.name}
+                  
                       <span className="absolute inset-0" />
-                    </a>
+                  </Link>
                     <p className="mt-1 text-gray-600">{item.description}</p>
                   </div>
                 </div>
