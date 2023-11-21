@@ -8,13 +8,16 @@ class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String, unique=True, nullable=False)
+    email = db.Column(db.String, unique=True)
     name = db.Column(db.String)
 
     image = db.Column(db.String)
     bio = db.Column(db.String)
 
     _password_hash = db.Column(db.String)
+
+    expenses = association_proxy('transactions', 'expense')
+    transactions = db.relationship('Transaction', backref='user')
 
     @hybrid_property
     def password_hash(self):
@@ -33,10 +36,13 @@ class Expense(db.Model, SerializerMixin):
     __tablename__ = 'expenses'
 
     id = db.Column(db.Integer, primary_key=True)
-    expense = db.Column(db.Float)
+    expense_incurred = db.Column(db.Float)
     description = db.Column(db.String)
     category = db.Column(db.String)
     recurrence = db.Column(db.String)
+
+    users = association_proxy('transactions', 'user')
+    transactions = db.relationship('Transaction', backref='expense')
 
 
 

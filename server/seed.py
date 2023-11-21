@@ -10,7 +10,7 @@ with app.app_context():
 
 
     print("Creating user...")
-    user1 = User(email = "test@gmail.com", name = "Test Name")
+    user1 = User(email = "test@gmail.com", name = "Test Name", image = "https://depositphotos.com/vector/user-profile-icon-137014128.html", bio = "this is a temp bio")
     user1.password_hash = "test"
 
     # this will let you see the password not hashed (line 17)
