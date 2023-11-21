@@ -39,6 +39,8 @@ class Expense(db.Model, SerializerMixin):
     recurrence = db.Column(db.String)
 
 
+
+
 class Transaction(db.Model, SerializerMixin):
     __tablename__ = 'transactions'
 

@@ -106,7 +106,7 @@ api.add_resource(Signup, '/signup')
 
 
 # test users api 
-class Users(Resource):
+class Users(Resource):        
 
     def get(self):
 
@@ -115,6 +115,26 @@ class Users(Resource):
         return response
     
 api.add_resource(Users, '/users')
+
+class UserByID(Resource):
+
+    def get(self, id):
+        
+        if id not in [user.id for user in User.query.all()]:
+
+            response = make_response( { 'error': 'user not found' }, 404)
+
+            return response
+        
+        user = User.query.filter_by(id=id).first()
+
+        user_dict = user.to_dict()
+
+        response = make_response(user_dict, 202)
+
+        return response
+
+api.add_resource(UserByID, '/users/<int:id>')
 
 
 
