@@ -7,6 +7,8 @@ from config import db, bcrypt
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
+    serialize_rules = ('-transactions', 'expenses')
+
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String, unique=True)
     name = db.Column(db.String)
@@ -35,6 +37,9 @@ class User(db.Model, SerializerMixin):
 class Expense(db.Model, SerializerMixin):
     __tablename__ = 'expenses'
 
+    serialize_rules = ('-transactions',)
+
+
     id = db.Column(db.Integer, primary_key=True)
     expense_incurred = db.Column(db.Float)
     description = db.Column(db.String)
@@ -49,6 +54,8 @@ class Expense(db.Model, SerializerMixin):
 
 class Transaction(db.Model, SerializerMixin):
     __tablename__ = 'transactions'
+
+    serialize_rules = ('-expense.transactions', '-user.transactions')
 
     id = db.Column(db.Integer, primary_key = True)
 
