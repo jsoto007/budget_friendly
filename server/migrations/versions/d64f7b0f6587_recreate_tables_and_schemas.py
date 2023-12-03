@@ -1,8 +1,8 @@
-"""add models and schema
+"""recreate tables and schemas
 
-Revision ID: 4c6a51732cba
+Revision ID: d64f7b0f6587
 Revises: 
-Create Date: 2023-11-21 18:49:25.512353
+Create Date: 2023-11-28 22:16:21.275669
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '4c6a51732cba'
+revision = 'd64f7b0f6587'
 down_revision = None
 branch_labels = None
 depends_on = None
