@@ -8,7 +8,7 @@ function DataContextProvider( { children }) {
 
 
   useEffect(() => {
-    fetch('/users')
+    fetch(`/users/1`)
     .then(resp => {
       if (resp.ok){
         resp.json().then(dataForUser => {

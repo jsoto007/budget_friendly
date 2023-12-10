@@ -1,24 +1,16 @@
-import React, {useEffect, useState} from "react"
+import React, {useContext, useState} from "react"
 import profile from "../images/profile.svg"
 import book from "../images/book.svg"
 import logOut from "../images/logOut.svg"
 import sliders from "../images/sliders.svg"
 import trending from "../images/trending.svg"
+import { DataContext } from "../context/DataContextProvider"
 import { Link } from 'react-router-dom';
 
 
 export default function Dashboard() {
 
-
-  // to be deteled 
-  const [user, setUser] = useState([])
-
-  useEffect(() => {
-    fetch("http://127.0.0.1:5555/users")
-    .then(resp => resp.json())
-    .then(data => {setUser(data)})
-  }, [])
-
+  const {userData} = useContext(DataContext)
 
   return( 
     <div className="flex">
@@ -90,7 +82,12 @@ export default function Dashboard() {
         </div>
         <div>
 
-          <h1 className="mt-20 pr-72">Financial overview</h1>
+          <h1 className="mt-6 pr-72"> 
+            <span className="font-serif">
+              Welcome to Budget Friendly, 
+            </span>  
+            {userData.name}
+          </h1>
         </div>
       </div>
      
