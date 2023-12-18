@@ -9,10 +9,11 @@ function UserContextProvider({ children } ) {
   const [currentUser, setCurrentUser] = useState({})
 
   useEffect(() => {
-    fetch('/check_session')
+    fetch('/login')
     .then(resp => {
       if (resp.ok){
         resp.json().then(user => {
+          console.log("user", user)
           setCurrentUser(user)
           window.localStorage.setItem("isLoggedIn", true)
         })
@@ -32,9 +33,10 @@ function UserContextProvider({ children } ) {
       method: 'DELETE', 
     })
     .then(()=> {
-      setCurrentUser({})
+      setCurrentUser([])
       localStorage.removeItem("isLoggedIn")
       handleReload()
+      console.log("data after Logout", currentUser)
   })
   }
 

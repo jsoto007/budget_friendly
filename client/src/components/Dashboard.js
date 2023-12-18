@@ -4,13 +4,15 @@ import book from "../images/book.svg"
 import logOut from "../images/logOut.svg"
 import sliders from "../images/sliders.svg"
 import trending from "../images/trending.svg"
-import { DataContext } from "../context/DataContextProvider"
+import { UserContext } from "../context/UserContextProvider"
 import { Link } from 'react-router-dom';
 
 
 export default function Dashboard() {
 
-  const {userData} = useContext(DataContext)
+  const {currentUser} = useContext(UserContext)
+
+  console.log("currentUser", currentUser);
 
   return( 
     <div className="flex">
@@ -86,7 +88,7 @@ export default function Dashboard() {
             <span className="font-serif">
               Welcome to Budget Friendly, 
             </span>  
-            {userData.name}
+            {currentUser.name}
           </h1>
         </div>
       </div>
