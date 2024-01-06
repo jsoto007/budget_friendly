@@ -1,10 +1,17 @@
 'use client'
 
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../context/user";
+
+
 
 
 function Login( { onChangeLogin } ) {
-  
+
+  const { setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext)
+
+  console.log(user)
 
   const [formData, setFormData] = useState({
     email: "",
@@ -14,21 +21,32 @@ function Login( { onChangeLogin } ) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch('http://127.0.0.1:5555/login', {
+    fetch('/login', {
       method: "POST", 
       headers: {
         'Content-type': 'application/json'
       },
       body:JSON.stringify(formData)
-    });
-    const data = await response.json();
-    if(response.ok){
-      setFormData(data)
-      window.localStorage.setItem("isLoggedIn", true)
-      handleReload()
-    }
-  }
+    })
+    .then((r) => {
+      if (r.ok) {
+        r.json().then(setUser)
+      } else {
+        alert("Must enter a valid username and password")
 
+      }
+
+    });
+  }
+  //   // const data = await response.json();
+  //   if(response.ok){
+  //     response.json().then(setUser)
+  //     setFormData(data)
+  //     window.localStorage.setItem("isLoggedIn", true)
+  //     handleReload()
+  //   } else {
+  //   }
+  // }
 
   function handleReload() {
     setTimeout(function(){

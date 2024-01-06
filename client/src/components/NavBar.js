@@ -1,22 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from 'react-router-dom';
+import { UserContext } from "../context/user";
 
 function NavBar() {
 
-  function handleReload() {
-    setTimeout(function(){
-      window.location.reload();
-  }, 100);
-  }
+
+  // const { setUser } = useContext(UserContext);
+
+  const {setUser} = useContext(UserContext);
+
+
+  // function handleReload() {
+  //   setTimeout(function(){
+  //     window.location.reload();
+  // }, 100);
+  // }
 
   function handleLogout() {
-    fetch("http://127.0.0.1:5555/logout", {
-      method: 'DELETE', 
-    })
-    .then(()=> {
+    fetch("/logout", 
+    {  method: 'DELETE'})
+    .then((r) => {
 
-      localStorage.removeItem("isLoggedIn")
-      handleReload()
+      if (r.ok) {
+
+        setUser(null);
+        
+      }      
   })
   }
 

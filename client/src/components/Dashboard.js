@@ -1,16 +1,48 @@
-import React, {useContext, useState} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import profile from "../images/profile.svg"
 import book from "../images/book.svg"
-import logOut from "../images/logOut.svg"
+// import logOut from "../images/logOut.svg"
 import sliders from "../images/sliders.svg"
 import trending from "../images/trending.svg"
-import { DataContext } from "../context/DataContextProvider"
 import { Link } from 'react-router-dom';
+import { UserContext } from "../context/user"
+
+function Dashboard() {
+
+  const { user } = useContext(UserContext)
+
+  // const [data, setData] = useState([])
+
+  // useEffect(() => {
+  //   fetch("/users")
+  //     .then(res=> res.json())
+  //     .then(data => {
+  //       debugger
+  //       setData(data)
+  //     }) 
+  // },[])
+
+  console.log(user.email)
+
+  // let usersList = data.map((user) => {
+
+  //   return (
+  //     <>
+
+  //       <h1 className="mt-6 pr-72"> 
+  //           <span className="font-serif">
+  //             Welcome to Budget Friendly, 
+  //           </span>  
+  //           {user.name}
+  //       </h1>
+
+      
+  //     </>
+
+  //   )
+  // })
 
 
-export default function Dashboard() {
-
-  const {userData} = useContext(DataContext)
 
   return( 
     <div className="flex">
@@ -86,7 +118,7 @@ export default function Dashboard() {
             <span className="font-serif">
               Welcome to Budget Friendly, 
             </span>  
-            {userData.name}
+            {user.name}
           </h1>
         </div>
       </div>
@@ -94,3 +126,6 @@ export default function Dashboard() {
     </div>
   )
 }
+
+
+export default Dashboard;

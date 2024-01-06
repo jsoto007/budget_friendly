@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
-import { DataContext } from "../../context/DataContextProvider";
 
 
 
 export default function Profile() {
 
-  const {userData} = useContext(DataContext)
 
   return(
     <div>

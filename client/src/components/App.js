@@ -1,16 +1,29 @@
-import React from "react"
-import { Route, Routes, useContext } from 'react-router-dom';
-import AuthConteiner from "./AuthConteiner"
+import { Route, Routes } from 'react-router-dom';
 import Dashboard from "./Dashboard"
 import NavBar from "./NavBar";
 import ProfileContainer from "./profile/ProfileContainer";
 import IndividualData from "./profile/IndicidualData";
+import AuthContainer from './AuthContainer';
 
-export default function App() {
 
-  const userLogedIn = window.localStorage.getItem("isLoggedIn");
+import React, { useContext, useEffect } from "react";
+import { UserContext } from "../context/user";
 
-  if (userLogedIn === null) return <AuthConteiner />
+function App() {
+
+  const { user, setUser } = useContext(UserContext)
+
+  useEffect(() => {
+    fetch("/check_session").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user))
+      }
+    })
+  }, [])
+
+  // const userLogedIn = window.localStorage.getItem("isLoggedIn");
+
+  if (!user) return < AuthContainer />
 
   return (
       <div className="bg-[#0F4880]">
@@ -28,3 +41,5 @@ export default function App() {
       </div>
   )
 }
+
+export default App;

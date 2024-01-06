@@ -116,6 +116,31 @@ class Users(Resource):
     
 api.add_resource(Users, '/users')
 
+
+# ADD NEW API so that it's easier to pull information 
+
+# class GetUserInfo(Resource):
+
+#     def get(self):
+
+#         if session.get("user_id"):
+
+#             user = User.query.filter_by(id=session['user_id']).first()
+
+#             user_dict = user.to_dict()
+            
+
+#             response = make_response(user_dict, 200)
+
+#             return response
+        
+#         response = make_response({'error': '401 Unauthorized'}, 401)
+
+#         return response
+
+# api.add_resource(GetUserInfo, '/getUserInfo')
+
+
 class UserByID(Resource):
 
     def get(self, id):
