@@ -16,54 +16,30 @@ function Login( { onChangeLogin } ) {
   });
 
 
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-  //   fetch('/login', {
-  //     method: "POST", 
-  //     headers: {
-  //       'Content-type': 'application/json'
-  //     },
-  //     body:JSON.stringify(formData)
-  //   })
-  //   .then((resp) => {
-  //     if (resp.ok) {
-  //       resp.json().then(setUser)
-  //     } else {
-  //       alert("Must enter a valid username and password")
-
-  //     }
-
-  //   });
-  // }
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch('/login', {
-      method: "POST",
+    fetch('/login', {
+      method: "POST", 
       headers: {
-        'Content-type':  'application/json'
+        'Content-type': 'application/json'
       },
       body:JSON.stringify(formData)
-    });
-    const data = await response.json()
-    if (response.ok){
-      response.json().then(setUser)
-      setFormData(data)
-      window.localStorage.setItem("isLoggedIn", true)
+    })
+    .then((resp) => {
+      if (resp.ok) {
+        resp.json().then(setUser)
+  
+        window.localStorage.setItem("isLoggedIn", true)
       handleReload()
-    } else {
-      
-    }
-  }
-  //   // const data = await response.json();
-  //   if(response.ok){
-  //     response.json().then(setUser)
-  //     setFormData(data)
-  //     window.localStorage.setItem("isLoggedIn", true)
-  //     handleReload()
-  //   } else {
-  //   }
-  // }
+      } else {
+        alert("Must enter a valid username and password")
 
+      }
+
+    });
+  }
+ 
+  
   function handleReload() {
     setTimeout(function(){
       window.location.reload();

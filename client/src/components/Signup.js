@@ -10,7 +10,7 @@ export default  function Signup( { onChangeLogin } ) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch('http://127.0.0.1:5555/signup', {
+    const response = await fetch('/signup', {
       method: "POST", 
       headers: {
         'Content-type': 'application/json'
@@ -28,7 +28,7 @@ export default  function Signup( { onChangeLogin } ) {
   function handleReload() {
     setTimeout(function(){
       window.location.reload();
-  }, 10000);
+  }, 100);
   }
 
 
