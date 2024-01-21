@@ -1,7 +1,7 @@
 import React from "react"
 import Profile from "./Profile"
 
-export default function IndividualData() {
+export default function UserDataCard() {
   return (
     <div className='sm:mx-1 md:mx-2 lg:mx-4'>
       <Profile />

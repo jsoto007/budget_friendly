@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import Dashboard from "./Dashboard"
 import NavBar from "./NavBar";
 import ProfileContainer from "./profile/ProfileContainer";
-import IndividualData from "./profile/IndicidualData";
+import UserDataCard from "./profile/UserDataCard";
 import AuthContainer from './AuthContainer';
 
 
@@ -21,6 +21,7 @@ function App() {
     })
   }, [])
 
+  
   // const userLogedIn = window.localStorage.getItem("isLoggedIn");
 
   if (!user) return < AuthContainer />
@@ -34,7 +35,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />}/>
           <Route path="/profile" element={<ProfileContainer />}/>
           <Route path="/expenses" element={<h1>expenses</h1>}/>
-          <Route path="/profile/security" element={<IndividualData />}/>
+          <Route path="/profile/security" element={<UserDataCard />}/>
           <Route path="/profile/analytics" element={<h1>Hello from User</h1>}/>
         </Routes>
           

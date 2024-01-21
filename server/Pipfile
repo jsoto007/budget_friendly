@@ -11,6 +11,7 @@ flask-restful = "*"
 flask-cors = "*"
 sqlalchemy-serializer = "*"
 flask-bcrypt = "*"
+bcrypt = "*"
 
 [dev-packages]
 
