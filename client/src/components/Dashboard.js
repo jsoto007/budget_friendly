@@ -11,38 +11,6 @@ function Dashboard() {
 
   const { user } = useContext(UserContext)
 
-  // const [data, setData] = useState([])
-
-  // useEffect(() => {
-  //   fetch("/users")
-  //     .then(res=> res.json())
-  //     .then(data => {
-  //       debugger
-  //       setData(data)
-  //     }) 
-  // },[])
-
-  console.log(user.email)
-
-  // let usersList = data.map((user) => {
-
-  //   return (
-  //     <>
-
-  //       <h1 className="mt-6 pr-72"> 
-  //           <span className="font-serif">
-  //             Welcome to Budget Friendly, 
-  //           </span>  
-  //           {user.name}
-  //       </h1>
-
-      
-  //     </>
-
-  //   )
-  // })
-
-
 
   return( 
     <div className="flex">
@@ -60,9 +28,9 @@ function Dashboard() {
                 height="auto"
                 className="ml-5 mb-2"
                 />
-              <spam className="flex justify-center text-white">
+              <span className="flex justify-center text-white">
                 Profile
-              </spam>
+              </span>
             </Link>
           </div>
 
@@ -74,9 +42,9 @@ function Dashboard() {
                 height="auto"
                 className="ml-5 mb-2"
                 />
-              <spam className="flex justify-center text-white">
+              <span className="flex justify-center text-white">
                 Expenses
-              </spam>
+              </span>
             </Link>
           </div>
 
@@ -87,9 +55,9 @@ function Dashboard() {
               height="auto"
               className="ml-5 mb-2"
             />
-            <spam className="flex justify-center text-white">
+            <span className="flex justify-center text-white">
              Progress
-            </spam>
+            </span>
           </div>
 
           <div className="sm:mt-4 dm:mt-6 lg:mt-10 hover:font-extrabold">
@@ -99,9 +67,9 @@ function Dashboard() {
               height="auto"
               className="ml-5 mb-2"
             />
-            <spam className="flex justify-center text-white">
+            <span className="flex justify-center text-white">
               Settings
-            </spam>
+            </span>
           </div>
         </div>
       </div>

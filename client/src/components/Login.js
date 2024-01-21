@@ -9,9 +9,6 @@ import { UserContext } from "../context/user";
 function Login( { onChangeLogin } ) {
 
   const { setUser } = useContext(UserContext);
-  const { user } = useContext(UserContext)
-
-  console.log(user)
 
   const [formData, setFormData] = useState({
     email: "",
@@ -19,24 +16,43 @@ function Login( { onChangeLogin } ) {
   });
 
 
+  // async function handleSubmit(e) {
+  //   e.preventDefault();
+  //   fetch('/login', {
+  //     method: "POST", 
+  //     headers: {
+  //       'Content-type': 'application/json'
+  //     },
+  //     body:JSON.stringify(formData)
+  //   })
+  //   .then((resp) => {
+  //     if (resp.ok) {
+  //       resp.json().then(setUser)
+  //     } else {
+  //       alert("Must enter a valid username and password")
+
+  //     }
+
+  //   });
+  // }
   async function handleSubmit(e) {
     e.preventDefault();
-    fetch('/login', {
-      method: "POST", 
+    const response = await fetch('/login', {
+      method: "POST",
       headers: {
-        'Content-type': 'application/json'
+        'Content-type':  'application/json'
       },
       body:JSON.stringify(formData)
-    })
-    .then((r) => {
-      if (r.ok) {
-        r.json().then(setUser)
-      } else {
-        alert("Must enter a valid username and password")
-
-      }
-
     });
+    const data = await response.json()
+    if (response.ok){
+      response.json().then(setUser)
+      setFormData(data)
+      window.localStorage.setItem("isLoggedIn", true)
+      handleReload()
+    } else {
+      
+    }
   }
   //   // const data = await response.json();
   //   if(response.ok){
