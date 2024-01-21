@@ -11,19 +11,11 @@ import { UserContext } from "../context/user";
 
 function App() {
 
-  const { user, setUser } = useContext(UserContext)
+  const { user } = useContext(UserContext)
 
-  useEffect(() => {
-    fetch("/check_session").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user))
-      }
-    })
-  }, [])
-
-  
   // const userLogedIn = window.localStorage.getItem("isLoggedIn");
 
+  console.log("user from App:", user)
   if (!user) return < AuthContainer />
 
   return (
