@@ -15,7 +15,6 @@ function App() {
 
   // const userLogedIn = window.localStorage.getItem("isLoggedIn");
 
-  console.log("user from App:", user)
   if (!user) return < AuthContainer />
 
   return (
