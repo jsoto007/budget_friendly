@@ -28,7 +28,7 @@ export default  function Signup( { onChangeLogin } ) {
   function handleReload() {
     setTimeout(function(){
       window.location.reload();
-  }, 100);
+  }, 10000);
   }
 
 

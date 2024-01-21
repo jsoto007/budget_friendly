@@ -1,7 +1,6 @@
 import React, {useContext, useEffect, useState} from "react"
 import profile from "../images/profile.svg"
 import book from "../images/book.svg"
-// import logOut from "../images/logOut.svg"
 import sliders from "../images/sliders.svg"
 import trending from "../images/trending.svg"
 import { Link } from 'react-router-dom';

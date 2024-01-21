@@ -11,11 +11,9 @@ import { UserContext } from "../context/user";
 
 function App() {
 
-  const { user } = useContext(UserContext)
+  const userLogedIn = window.localStorage.getItem("isLoggedIn");
 
-  // const userLogedIn = window.localStorage.getItem("isLoggedIn");
-
-  if (!user) return < AuthContainer />
+  if (!userLogedIn) return < AuthContainer />
 
   return (
       <div className="bg-[#0F4880]">

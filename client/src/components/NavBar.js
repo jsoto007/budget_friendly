@@ -7,11 +7,11 @@ function NavBar() {
   const {setUser} = useContext(UserContext);
 
 
-  // function handleReload() {
-  //   setTimeout(function(){
-  //     window.location.reload();
-  // }, 100);
-  // }
+  function handleReload() {
+    setTimeout(function(){
+      window.location.reload();
+  }, 10);
+  }
 
   function handleLogout() {
     fetch("/logout", 
@@ -20,7 +20,9 @@ function NavBar() {
 
       if (resp.ok) {
 
-        setUser(null);
+        setUser([]);
+        localStorage.removeItem("isLoggedIn")
+        handleReload();
         
       }      
   })
