@@ -7,6 +7,7 @@ import AuthContainer from './AuthContainer';
 
 
 import React, { useContext, useEffect } from "react";
+import ExpenseForm from './forms/ExpenseForm';
 import { UserContext } from "../context/user";
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
           <Route path="/" element={<Dashboard />}/>
           <Route path="/dashboard" element={<Dashboard />}/>
           <Route path="/profile" element={<ProfileContainer />}/>
-          <Route path="/expenses" element={<h1>expenses</h1>}/>
+          <Route path="/expenses" element={<ExpenseForm />}/>
           <Route path="/profile/security" element={<UserDataCard />}/>
           <Route path="/profile/analytics" element={<h1>Hello from User</h1>}/>
         </Routes>
