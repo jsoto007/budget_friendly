@@ -17,7 +17,7 @@ const solutions = [
   { name: 'Automations', description: 'Build strategic payment plans for upcoming bills', href: '#', icon: ArrowPathIcon },
 ]
 const callsToAction = [
-  { name: 'Watch Demo', href: 'https://www.youtube.com/watch?v=C6nOWE8betQ', icon: PlayCircleIcon },
+  { name: 'Watch Demo', href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', icon: PlayCircleIcon },
   { name: 'Contact Us', href: '#', icon: PhoneIcon },
 ]
 
