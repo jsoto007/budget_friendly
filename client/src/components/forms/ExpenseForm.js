@@ -105,7 +105,7 @@ export default function ExpenseForm() {
                 </select>
               </div>
             </div>
-              <button className="bg-blue-500 hover:bg-blue-700 text-white sm:mt-10 sm:ml-2 font-bold sm:py-2 sm:px-4 border border-blue-700 rounded">
+              <button  type="submit" className="bg-blue-500 hover:bg-blue-700 text-white sm:mt-10 sm:ml-2 font-bold sm:py-2 sm:px-4 border border-blue-700 rounded">
                 Add Expense
               </button>
           </div>
