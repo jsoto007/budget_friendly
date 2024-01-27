@@ -31,6 +31,7 @@ export default function ExpenseForm() {
   return (
     <form className=" pt-20 pb-6">
       <div className="space-y-12 bg-neutral-200 pt-4 rounded-lg sm:mx-2 md:mx-4 lg:mx-8 ">
+        <h1 className="text-lg font-bold ml-4">New Expense Form</h1>
         <div className="border-b border-gray-900/10 pb-12">
         
           <div className="mt-10  sm:mx-2 mx-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -104,6 +105,9 @@ export default function ExpenseForm() {
                 </select>
               </div>
             </div>
+              <button className="bg-blue-500 hover:bg-blue-700 text-white sm:mt-10 sm:ml-2 font-bold sm:py-2 sm:px-4 border border-blue-700 rounded">
+                Add Expense
+              </button>
           </div>
         </div>
       </div>
