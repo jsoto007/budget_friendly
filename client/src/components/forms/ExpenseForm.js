@@ -2,11 +2,9 @@ import React, { useState } from "react";
 
 export default function ExpenseForm() {
 
-  // const date = new Data();
-
   const [formData, setFormData] = useState({
     expense: "", 
-    expenseDate: ``, 
+    expenseDate: "", 
     description: "", 
     category: ""
   })
@@ -19,7 +17,16 @@ export default function ExpenseForm() {
     })
   }
 
-  console.log(formData)
+  const categoryOptions = [
+          "Other", 
+          "Utilities", 
+          "Mortgage / Rent", 
+          "Subscriotions", 
+          "Health Care", 
+          "Food", 
+          "Transportation"
+        ]
+
 
   return (
     <form className=" pt-20 pb-6">
@@ -89,13 +96,11 @@ export default function ExpenseForm() {
                   autoComplete="category-name"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
-                  <option>Other</option>
-                  <option>Utilities</option>
-                  <option>Mortgage / Rent</option>
-                  <option>Subscriotions</option>
-                  <option>Health Care</option>
-                  <option>Food</option>
-                  <option>Transportation</option>
+                  {categoryOptions.map((category) => {
+                    return (
+                      <option key={category}>{category}</option>
+                    )
+                  })}
                 </select>
               </div>
             </div>
