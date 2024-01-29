@@ -42,7 +42,7 @@ class Expense(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     expense_incurred = db.Column(db.Float)
-    description = db.Column(db.String)
+    expense_name = db.Column(db.String)
     category = db.Column(db.String)
     recurrence = db.Column(db.String)
 
@@ -62,6 +62,6 @@ class Transaction(db.Model, SerializerMixin):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     expense_id = db.Column(db.Integer, db.ForeignKey('expenses.id'))
 
-    date = db.Column(db.String)
+    date = db.Column(db.Date)
 
 
