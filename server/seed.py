@@ -1,6 +1,10 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from app import app
+
+from datetime import datetime
+
+
 from models import db, User, Expense, Transaction
 
 with app.app_context():
@@ -32,14 +36,14 @@ with app.app_context():
     print("Creating Expense...")
     exp1 = Expense(
         expense_incurred = '20.00',
-        description = "Haircut",
+        expense_name = "Haircut",
         category = "Self-Groom",
         recurrence = "Monthly"
     )
 
     exp2 = Expense(
         expense_incurred = '100.00',
-        description = "Jacket",
+        expense_name = "Jacket",
         category = "Clothing",
         recurrence = "One-Time"
     )
@@ -47,23 +51,33 @@ with app.app_context():
     expenses = [exp1, exp2]
 
     print("Creating Transaction...")
+
+    date_string1 = "11/20/23"
+    date_object1 = datetime.strptime(date_string1, "%m/%d/%y").date()
+
     
     transaction1 = Transaction(
         user = user1, 
         expense = exp2, 
-        date = "11/20/23",
+        date = date_object1,
     )
+
+    date_string2 = "11/10/23"
+    date_object2 = datetime.strptime(date_string2, "%m/%d/%y").date()
 
     transaction2 = Transaction(
         user = user2, 
         expense = exp2, 
-        date = "11/10/23",
+        date = date_object2,
     )
+
+    date_string3 = "11/14/23"
+    date_object3 = datetime.strptime(date_string2, "%m/%d/%y").date()
 
     transaction3 = Transaction(
         user = user2, 
         expense = exp1, 
-        date = "11/14/23",
+        date = date_object3,
     )
 
     transactions = [transaction1, transaction2, transaction3]
