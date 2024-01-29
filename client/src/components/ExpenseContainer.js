@@ -2,7 +2,6 @@ import React from "react";
 import ExpenseForm from './forms/ExpenseForm';
 import ExpenseTable from "./tables/ExpenseTable";
 
-
 export default function ExpenseContainer() {
 
   return(
