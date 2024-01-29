@@ -30,7 +30,7 @@ export default function ExpenseForm() {
 
   return (
     <form className=" pt-20 pb-6">
-      <div className="space-y-12 bg-neutral-200 pt-4 rounded-lg sm:mx-2 md:mx-4 lg:mx-8 ">
+      <div className="space-y-12 bg-neutral-200 pt-4 rounded-lg sm:mx-2 md:mx-4 lg:mx-8">
         <h1 className="text-lg font-bold ml-4">New Expense Form</h1>
         <div className="border-b border-gray-900/10 pb-12">
         
