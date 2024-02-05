@@ -5,11 +5,10 @@ export default function ExpenseTable() {
 
   const { user } = useContext(UserContext)
 
+
   const userExpense = user.expenses
-  console.log("userDATA", userExpense[0].category)
 
   return (
-
 
     <div className="relative overflow-x-auto shadow-md rounded-lg pt-20">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -36,9 +35,9 @@ export default function ExpenseTable() {
                 </tr>
             </thead>
             <tbody>
-              {userExpense.map((expense) => {
+              {userExpense?.map((expense) => {
                 return (
-                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" key={expense.id}>
                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                         {expense.description}
                     </th>
