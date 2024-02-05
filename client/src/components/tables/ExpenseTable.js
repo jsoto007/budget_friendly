@@ -8,6 +8,8 @@ export default function ExpenseTable() {
 
   const userExpense = user.expenses
 
+  console.log(user)
+
   return (
 
     <div className="relative overflow-x-auto shadow-md rounded-lg pt-20">
@@ -18,16 +20,16 @@ export default function ExpenseTable() {
                         Expense name
                     </th>
                     <th scope="col" className="px-6 py-3">
-                        Date
+                        Amount
                     </th>
                     <th scope="col" className="px-6 py-3">
-                        Price
+                        Category
                     </th>
                     <th scope="col" className="px-6 py-3">
                         Recurrence
                     </th>
                     <th scope="col" className="px-6 py-3">
-                        Description
+                        Date
                     </th>
                     <th scope="col" className="px-6 py-3">
                         <span className="sr-only">Edit</span>
@@ -39,19 +41,19 @@ export default function ExpenseTable() {
                 return (
                   <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" key={expense.id}>
                     <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {expense.description}
+                        {expense.expense_name}
                     </th>
                     <td className="px-6 py-4">
-                        {expense.id} 22-2024
+                        ${expense.expense_incurred}
                     </td>
                     <td className="px-6 py-4">
-                        ${expense.expense_incurred}
+                        {expense.category}
                     </td>
                     <td className="px-6 py-4">
                         {expense.recurrence}
                     </td>
                     <td className="px-6 py-4">
-                        {expense.description}
+                        {expense.id} 22-2024
                     </td>
                     <td className="px-6 py-4 text-right">
                         <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
