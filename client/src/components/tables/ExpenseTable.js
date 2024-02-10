@@ -6,7 +6,7 @@ export default function ExpenseTable() {
   const { user } = useContext(UserContext)
 
   const userExpense = user.expenses
-  console.log("userDATA", userExpense[0].category)
+
 
   return (
 
