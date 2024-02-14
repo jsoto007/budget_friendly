@@ -5,6 +5,7 @@ import ProfileContainer from "./profile/ProfileContainer";
 import UserDataCard from "./profile/UserDataCard";
 import AuthContainer from './AuthContainer';
 import ExpenseContainer from './ExpenseContainer';
+import DashboardContainer from './DashboardContainer';
 
 
 import React, { useContext, useEffect } from "react";
@@ -22,7 +23,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Dashboard />}/>
-          <Route path="/dashboard" element={<Dashboard />}/>
+          <Route path="/dashboard" element={<DashboardContainer />}/>
           <Route path="/profile" element={<ProfileContainer />}/>
           <Route path="/expenses" element={<ExpenseContainer />}/>
           <Route path="/profile/security" element={<UserDataCard />}/>

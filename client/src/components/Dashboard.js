@@ -76,16 +76,7 @@ function Dashboard() {
       <div className="p-7 bg-neutral-200 my-20 rounded-xl md:w-[85%] lg:w-[85%] ">
         <div>
           <h1 className="text-2xl font-semibold">
-            Dashboard
-          </h1>
-        </div>
-        <div>
-
-          <h1 className="mt-6 pr-72"> 
-            <span className="font-serif">
-              Welcome to Budget Friendly, 
-            </span>  
-            {user.name}
+            Dashboard @@###
           </h1>
         </div>
       </div>

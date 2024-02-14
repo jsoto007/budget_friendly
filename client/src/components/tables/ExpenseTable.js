@@ -44,7 +44,7 @@ export default function ExpenseTable() {
                         {expense.id} 22-2024
                     </td>
                     <td className="px-6 py-4">
-                        ${expense.expense_incurred}
+                        $ {expense.expense_incurred}
                     </td>
                     <td className="px-6 py-4">
                         {expense.recurrence}
