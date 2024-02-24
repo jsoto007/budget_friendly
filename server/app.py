@@ -1,5 +1,5 @@
 from flask import request, make_response, session
-from models import User
+from models import User, Transaction, Expense
 from flask_restful import Resource
 from config import app, db, api
 
@@ -116,31 +116,6 @@ class Users(Resource):
     
 api.add_resource(Users, '/users')
 
-
-# ADD NEW API so that it's easier to pull information 
-
-# class GetUserInfo(Resource):
-
-#     def get(self):
-
-#         if session.get("user_id"):
-
-#             user = User.query.filter_by(id=session['user_id']).first()
-
-#             user_dict = user.to_dict()
-            
-
-#             response = make_response(user_dict, 200)
-
-#             return response
-        
-#         response = make_response({'error': '401 Unauthorized'}, 401)
-
-#         return response
-
-# api.add_resource(GetUserInfo, '/getUserInfo')
-
-
 class UserByID(Resource):
 
     def get(self, id):
@@ -162,12 +137,108 @@ class UserByID(Resource):
 api.add_resource(UserByID, '/users/<int:id>')
 
 
+class Expenses(Resource):
 
+    def get(self):
 
+        expenses_query = Expense.query.all()
 
+        expense_list = []
 
+        for e in expenses_query:
+            expenses = [expense.to_dict() for expense in e.users]
+            expense_dict = {
+                'id': e.id,
+                'expense_incurred': e.expense_incurred,
+                'expense_name': e.expense_name,
+                'category': e.category,
+                'recurrence': e.recurrence,
+                'users': expenses
+            }
 
+            expense_list.append(expense_dict)
 
+        response= make_response(expense_list, 200)
+
+        return response
+    
+
+    def post(self):
+        data = request.get_json()
+
+        try:
+            new_expense = Expense(expense_incurred=data['expense_incurred'], expense_name=data['expense_name'],
+                                  category=data['category'], recurrence=data['recurrence'])
+            
+            db.session.add(new_expense)
+            db.session.commit()
+
+            new_expense_dict = new_expense.to_dict()
+
+            response = make_response(new_expense, 201)
+
+        except ValueError:
+
+            db.session.rollback()
+            response = make_response({'message': 'validation errors'}, 422)
+
+        return response
+    
+api.add_resource(Expenses, '/expenses')
+
+class Transactions(Resource):
+    def get(self):
+
+        transaction_list = []
+
+        for transaction in Transaction.query.all():
+            transaction_filled = {
+                'id': transaction.id,
+                'user': {
+                    'user id': transaction.user.id,
+                },
+                'expense': {
+                    'expense id': transaction.expense.id
+                },
+                'date' : transaction.date
+            }
+            transaction_list.append(transaction_filled)
+
+        response = make_response(transaction_list, 200)
+
+        return response
+    
+    def post(self):
+        data = request.get_json()
+
+        try:
+            new_transaction = Transaction(user_id=data['user_id'], expense_id=data['expense_id'],
+                                          data=data['date'])
+            
+            db.session.add(new_transaction)
+            db.session.commit()
+
+            new_transaction_dict = {
+                'id': new_transaction.id,
+                'user': {
+                    'user id': new_transaction.user.id,
+                },
+                'expense': {
+                    'expense id': new_transaction.expense.id
+                },
+                'date': new_transaction.date
+            }
+
+            response = make_response(new_transaction_dict, 201)
+
+        except ValueError:
+
+            db.session.rollback()
+            response = make_response({'message': 'validation errors'}, 422)
+
+        return response
+    
+api.add_resource(Transactions, '/transactions')
 
 
 if __name__ == '__main__':
